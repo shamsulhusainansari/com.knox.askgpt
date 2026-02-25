@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: com.knox.askgpt
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs.enabled: true
+
+open-api:
+  url:
+    base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+    response: /v1/responses
+  key: ${OPENAI_API_KEY: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}
+  model: ${OPENAI_MODEL:gpt-5.2}
