@@ -1,4 +1,5 @@
 package com.knox.askgpt.controller;
+
 import com.google.gson.Gson;
 import com.knox.askgpt.model.GenerateTextRequest;
 import com.knox.askgpt.model.GenerateTextResponse;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 @Slf4j
 @RestController
 @RequestMapping("/api/v1")
@@ -23,7 +22,7 @@ public class AskController {
 
     private final AskService askService;
     @PostMapping("/askMe")
-    public Mono<List<GenerateTextResponse>> askMe(@RequestBody GenerateTextRequest request) {
+    public Mono<GenerateTextResponse> askMe(@RequestBody GenerateTextRequest request) {
         log.info("AskMe Request: {}", new Gson().toJson(request));
         return askService.askMe(request);
     }

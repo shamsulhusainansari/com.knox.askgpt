@@ -11,13 +11,17 @@ import java.util.List;
 @NoArgsConstructor
 public class GenerateTextResponse{
     private String id;
-    private String type;
-    private String role;
-    private List<Content> content;
+    private String status;
+    private String model;
+    private List<Output> output;
+
+    @Data
+    public static class Output {
+        private List<Content> content;
+    }
 
     @Data
     public static class Content {
-        private String type;
         private String text;
     }
 }
